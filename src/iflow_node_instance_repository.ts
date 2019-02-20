@@ -251,7 +251,7 @@ export interface IFlowNodeInstanceRepository {
    *
    * @async
    * @param   processModelId The ID of the ProcessModel, by which the FlowNodeInstances and the
-   *                          ProcessTokens should be removed
+   *                         ProcessTokens should be removed
    */
   deleteByProcessModelId(processModelId: string): Promise<void>;
 }

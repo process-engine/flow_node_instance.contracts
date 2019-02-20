@@ -13,6 +13,7 @@ export class ProcessToken {
   public flowNodeInstanceId: string;
   public identity: IIdentity;
   public createdAt: Date;
+  
   /**
    * If the token belongs to a Subprocess, this will contain the ID of the
    * parent process.
@@ -20,11 +21,13 @@ export class ProcessToken {
    * Will be empty, if the process started the correlation.
    */
   public caller: string;
+  
   /**
    * Determines when the token was recorded.
    * Can bei either onEnter, onExit, onSuspend, or onResume.
    */
   public type: ProcessTokenType;
+  
   /**
    * Contains the ProcessToken's values.
    */
