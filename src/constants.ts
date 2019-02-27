@@ -2,6 +2,7 @@
  * Contains a list of all known BPMN types and maps them to their corresponding XML tag.
  */
 export enum BpmnType {
+  emptyActivity = 'bpmn:Task',
   userTask = 'bpmn:UserTask',
   exclusiveGateway = 'bpmn:ExclusiveGateway',
   parallelGateway = 'bpmn:ParallelGateway',
