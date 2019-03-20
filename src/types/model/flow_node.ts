@@ -13,4 +13,5 @@ export abstract class FlowNode {
   public name: string;
   public incoming: Array<string> = [];
   public outgoing: Array<string> = [];
+  public defaultOutgoingSequenceFlowId?: string;
 }
