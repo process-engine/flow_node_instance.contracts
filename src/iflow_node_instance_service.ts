@@ -67,6 +67,25 @@ export interface IFlowNodeInstanceService {
   persistOnTerminate(flowNode: FlowNode, flowNodeInstanceId: string, token: ProcessToken): Promise<FlowNodeInstance>;
 
   /**
+   * Persists the state of a FlowNodeInstance when it was interrupted by a
+   * BoundaryEvent.
+   *
+   * @async
+   * @param   flowNode              The FlowNode to persist.
+   * @param   flowNodeInstanceId    The ID of the FlowNodeInstance to persist.
+   * @param   token                 The FlowNodeInstance's ProcessToken.
+   * @param   interruptorInstanceId The instance ID of the BoundaryEvent that
+   *                                interrupted the FlowNode.
+   * @returns                       The persisted FlowNodeInstance.
+   */
+  persistOnInterrupt(
+    flowNode: FlowNode,
+    flowNodeInstanceId: string,
+    token: ProcessToken,
+    interruptorInstanceId: string,
+  ): Promise<FlowNodeInstance>;
+
+  /**
    * Moves the FlowNodeInstance into a suspended state, effectively putting the
    * execution of the ProcessInstance on hold.
    *
