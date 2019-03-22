@@ -104,6 +104,17 @@ export interface IFlowNodeInstanceService {
   querySpecificFlowNode(correlationId: string, processModelId: string, flowNodeId: string): Promise<FlowNodeInstance>;
 
   /**
+   * Gets the FlowNode belonging to a specific ProcessInstance.
+   *
+   * @async
+   * @param   processInstanceId The ID of the ProcessInstance to query.
+   * @param   flowNodeId        The ID of the flowNode for which to retrieve
+   *                            FlowNodeInstances.
+   * @returns                   The retrieved FlowNodeInstance.
+   */
+  querySpecificFlowNodeByProcessInstanceId(processInstanceId: string, flowNodeId: string): Promise<FlowNodeInstance>;
+
+  /**
    * Gets all FlowNodeInstances with a specific flowNodeId.
    *
    * @async
