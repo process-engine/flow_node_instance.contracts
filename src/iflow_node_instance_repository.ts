@@ -112,7 +112,7 @@ export interface IFlowNodeInstanceRepository {
    *                            FlowNodeInstances.
    * @returns                   The retrieved FlowNodeInstances.
    */
-  queryFlowNodesByProcessInstanceId(processInstanceId: string, flowNodeId: string): Promise<Array<FlowNodeInstance>>;
+  queryFlowNodeInstancesByProcessInstanceId(processInstanceId: string, flowNodeId: string): Promise<Array<FlowNodeInstance>>;
 
   /**
    * Gets all FlowNodeInstances with a specific flowNodeId.
