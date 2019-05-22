@@ -1,4 +1,6 @@
-import {FlowNode, FlowNodeInstance, FlowNodeInstanceState, ProcessToken} from './types/index';
+import {
+  FlowNode, FlowNodeInstance, FlowNodeInstanceState, ProcessToken,
+} from './types/index';
 
 /**
  * Accesses the FlowNodeInstance database.
@@ -21,9 +23,9 @@ export interface IFlowNodeInstanceRepository {
    * @returns                            The persisted FlowNodeInstance.
    */
   persistOnEnter(flowNode: FlowNode,
-                 flowNodeInstanceId: string,
-                 token: ProcessToken,
-                 previousFlowNodeInstanceId?: string): Promise<FlowNodeInstance>;
+    flowNodeInstanceId: string,
+    token: ProcessToken,
+    previousFlowNodeInstanceId?: string): Promise<FlowNodeInstance>;
 
   /**
    * Persists the state of a FlowNodeInstance when it was successfully finished.
@@ -102,6 +104,17 @@ export interface IFlowNodeInstanceRepository {
    * @returns                The retrieved FlowNodeInstance.
    */
   querySpecificFlowNode(correlationId: string, processModelId: string, flowNodeId: string): Promise<FlowNodeInstance>;
+
+  /**
+   * Gets the FlowNodeInstances belonging to a specific ProcessInstance.
+   *
+   * @async
+   * @param   processInstanceId The ID of the ProcessInstance to query.
+   * @param   flowNodeId        The ID of the flowNode for which to retrieve
+   *                            FlowNodeInstances.
+   * @returns                   The retrieved FlowNodeInstances.
+   */
+  queryFlowNodeInstancesByProcessInstanceId(processInstanceId: string, flowNodeId: string): Promise<Array<FlowNodeInstance>>;
 
   /**
    * Gets all FlowNodeInstances with a specific flowNodeId.
