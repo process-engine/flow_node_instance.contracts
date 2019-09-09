@@ -103,17 +103,9 @@ export interface IFlowNodeInstanceService {
    * @param   processModelId The ID of the ProcessModel to query.
    * @param   flowNodeId     The ID of the flowNode for which to retrieve
    *                         FlowNodeInstances.
-   * @param   offset         Optional: The number of records to skip.
-   * @param   limit          Optional: The max. number of records to get.
    * @returns                The retrieved FlowNodeInstance.
    */
-  querySpecificFlowNode(
-    correlationId: string,
-    processModelId: string,
-    flowNodeId: string,
-    offset?: number,
-    limit?: number,
-  ): Promise<FlowNodeInstance>;
+  querySpecificFlowNode(correlationId: string, processModelId: string, flowNodeId: string): Promise<FlowNodeInstance>;
 
   /**
    * Gets the FlowNodeInstances belonging to a specific ProcessInstance.
