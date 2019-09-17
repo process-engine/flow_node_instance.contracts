@@ -1,5 +1,5 @@
 import {
-  FlowNode, FlowNodeInstance, FlowNodeInstanceState, ProcessToken, FlowNodeInstanceList,
+  FlowNode, FlowNodeInstance, FlowNodeInstanceList, FlowNodeInstanceState, ProcessToken,
 } from './types/index';
 
 /**
