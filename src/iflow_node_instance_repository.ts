@@ -1,5 +1,5 @@
 import {
-  FlowNode, FlowNodeInstance, FlowNodeInstanceState, ProcessToken,
+  FlowNode, FlowNodeInstance, FlowNodeInstanceState, ProcessToken, FlowNodeInstanceList,
 } from './types/index';
 
 /**
@@ -123,7 +123,7 @@ export interface IFlowNodeInstanceRepository {
     flowNodeId: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<FlowNodeInstance>>;
+  ): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all FlowNodeInstances with a specific flowNodeId.
@@ -135,7 +135,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit      Optional: The max. number of records to get.
    * @returns            The retrieved FlowNodeInstances.
    */
-  queryByFlowNodeId(flowNodeId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  queryByFlowNodeId(flowNodeId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets a FlowNodeInstance by its flowNodeInstanceId.
@@ -157,7 +157,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit         Optional: The max. number of records to get.
    * @returns               The retrieved FlowNodeInstances.
    */
-  queryByCorrelation(correlationId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  queryByCorrelation(correlationId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all FlowNodeInstances of a specific ProcessModel.
@@ -169,7 +169,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit          Optional: The max. number of records to get.
    * @returns                The retrieved FlowNodeInstances.
    */
-  queryByProcessModel(processModelId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  queryByProcessModel(processModelId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all FlowNodeInstances of a specific Correlation and ProcessModel.
@@ -183,7 +183,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit          Optional: The max. number of records to get.
    * @returns                The retrieved FlowNodeInstances.
    */
-  queryByCorrelationAndProcessModel(correlationId: string, processModelId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  queryByCorrelationAndProcessModel(correlationId: string, processModelId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all FlowNodeInstances of a specific ProcessInstance.
@@ -195,7 +195,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit             Optional: The max. number of records to get.
    * @returns                   The retrieved FlowNodeInstances.
    */
-  queryByProcessInstance(processInstanceId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  queryByProcessInstance(processInstanceId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all FlowNodeInstances that are in the designated state.
@@ -206,7 +206,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit  Optional: The max. number of records to get.
    * @returns        The retrieved FlowNodeInstances.
    */
-  queryByState(state: FlowNodeInstanceState, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  queryByState(state: FlowNodeInstanceState, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all active FlowNodeInstances.
@@ -218,7 +218,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit  Optional: The max. number of records to get.
    * @returns        The retrieved FlowNodeInstances.
    */
-  queryActive(offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  queryActive(offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all active FlowNodeInstances of a specific ProcessInstance.
@@ -230,7 +230,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit             Optional: The max. number of records to get.
    * @returns                   The retrieved FlowNodeInstances.
    */
-  queryActiveByProcessInstance(processInstanceId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  queryActiveByProcessInstance(processInstanceId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all active FlowNodeInstances of a specific Correlation and ProcessModel.
@@ -249,7 +249,7 @@ export interface IFlowNodeInstanceRepository {
     processModelId: string,
     offset?: number,
     limit?: number,
-  ): Promise<Array<FlowNodeInstance>>;
+  ): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all suspended FlowNodeInstances of a specific Correlation.
@@ -261,7 +261,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit         Optional: The max. number of records to get.
    * @returns               The retrieved FlowNodeInstances.
    */
-  querySuspendedByCorrelation(correlationId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  querySuspendedByCorrelation(correlationId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all suspended FlowNodeInstances of a specific ProcessModel.
@@ -273,7 +273,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit          Optional: The max. number of records to get.
    * @returns                The retrieved FlowNodeInstances.
    */
-  querySuspendedByProcessModel(processModelId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  querySuspendedByProcessModel(processModelId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all suspended FlowNodeInstances of a specific ProcessInstance.
@@ -285,7 +285,7 @@ export interface IFlowNodeInstanceRepository {
    * @param   limit           Optional: The max. number of records to get.
    * @returns                 The retrieved FlowNodeInstances.
    */
-  querySuspendedByProcessInstance(processInstanceId: string, offset?: number, limit?: number): Promise<Array<FlowNodeInstance>>;
+  querySuspendedByProcessInstance(processInstanceId: string, offset?: number, limit?: number): Promise<FlowNodeInstanceList>;
 
   /**
    * Gets all ProcessTokens of a specific ProcessInstance.
