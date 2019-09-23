@@ -1,6 +1,6 @@
 {
   "name": "@process-engine/flow_node_instance.contracts",
-  "version": "2.1.0-beta.1",
+  "version": "2.1.0-beta.2",
   "description": "Contains the commonly used contracts for the FlowNodeInstance API.",
   "main": "dist/commonjs/index.js",
   "typings": "dist/index.d.ts",
